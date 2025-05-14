@@ -20,8 +20,8 @@ services:
     build: ./server
     ports:
       - "4000:4000"
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
     networks:
       - app-network
     volumes:
