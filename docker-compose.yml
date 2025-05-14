@@ -12,6 +12,9 @@ services:
       - server
     networks:
       - web
+    volumes:
+      - ./client:/app
+      - /app/node_modules
 
   server:
     build: ./server
@@ -21,6 +24,9 @@ services:
       - NODE_ENV=production
     networks:
       - web
+    volumes:
+      - ./server:/app
+      - /app/node_modules
 
 networks:
   web:
