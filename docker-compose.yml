@@ -11,7 +11,7 @@ services:
     depends_on:
       - server
     networks:
-      - web
+      - app-network
     volumes:
       - ./client:/app
       - /app/node_modules
@@ -23,11 +23,11 @@ services:
     environment:
       - NODE_ENV=production
     networks:
-      - web
+      - app-network
     volumes:
       - ./server:/app
       - /app/node_modules
 
 networks:
-  web:
+  app-network:
     driver: bridge
