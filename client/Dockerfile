@@ -19,6 +19,9 @@ RUN npm run build
 # Create .next directory if it doesn't exist
 RUN mkdir -p .next
 
+# Change ownership of the app directory to node user
+RUN chown -R node:node /app
+
 # Expose the port the app runs on
 EXPOSE 5000
 
