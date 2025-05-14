@@ -16,6 +16,9 @@ COPY . .
 # Build the TypeScript project
 RUN npm run build
 
+# Create dist directory if it doesn't exist
+RUN mkdir -p dist
+
 # Expose the port the app runs on
 EXPOSE 4000
 
