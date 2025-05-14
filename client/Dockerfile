@@ -1,5 +1,5 @@
-# Use the official Node.js image from Docker Hub
-FROM node:latest
+# Use the official Bun image from Docker Hub
+FROM oven/bun:latest
 
 # Set the working directory
 WORKDIR /app
@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN bun install
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the Next.js application
-RUN npm run build
+RUN bun run build
 
 # Create .next directory if it doesn't exist
 RUN mkdir -p .next
@@ -26,4 +26,4 @@ RUN chown -R node:node /app
 EXPOSE 5000
 
 # Command to run the application
-CMD ["npx", "next", "start", "--port", "5000"]
+CMD ["bun", "run", "start", "--port", "5000"]
